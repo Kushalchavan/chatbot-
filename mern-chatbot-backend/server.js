@@ -9,7 +9,7 @@ import morgan from "morgan";
 
 dotenv.config();
 connectDB();
-
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 const allowedOrigins = [
@@ -37,6 +37,6 @@ app.use(morgan("dev"));
 app.use("/api/auth", authRoutes);
 app.use("/api/chat", chatRoutes);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("Server running on port 5000");
 });
